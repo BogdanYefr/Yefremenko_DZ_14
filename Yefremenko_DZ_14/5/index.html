@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .user-card {
+      text-align: center;
+      border: 1px solid #80808066;
+      border-radius: 10px;
+      color: #00bcd4;
+      margin-bottom: 20px;
+    }
+    .amg-style {
+      border-radius: 10px;
+      vertical-align: bottom;
+    }
+    
+  </style>
+</head>
+<body>
+
+
+  <div class="container">
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+  </div>
+  
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+  const userData = [
+    {name: 'Vasya', age: 25, gender: 'male', balance: 20, picture: 'https://www.interfax.ru/ftproot/photos/photostory/2021/06/11/week4_1100.jpg'},
+    {name: 'Petya', age: 28, gender: 'male', balance: 25, picture: 'https://www.interfax.ru/ftproot/photos/photostory/2021/06/11/week4_1100.jpg'},
+    {name: 'Anton', age: 2, gender: 'male', balance: 10, picture: 'https://www.interfax.ru/ftproot/photos/photostory/2021/06/11/week4_1100.jpg'}
+  ];
+
+  const userBlocks = ['#app1', '#app2', '#app3'];
+
+  const userClassName = 'user-card';
+  const imageUser = 'amg-style'
+  const width = '200px'
+
+//ReactDOM
+//  .createRoot(document.querySelector(userBlocks[0]))
+//  .render(
+//    <div className={userClassName}>
+//      <p>Ім'я: {userData[0].name}</p>
+//      <p>Вік: {userData[0].age}</p>  
+//      <p>Стать: {userData[0].gender}</p>
+//      <p>Залишок: {userData[0].balance}</p>
+//      <img src={userData[0].picture} alt="photo" width={width}/>
+//    </div>
+//  );
+
+  for (let i = 0; i < 3; i++) {
+    ReactDOM
+  .createRoot(document.querySelector(userBlocks[i]))
+  .render(
+    <div className={userClassName}>
+      <p>Ім'я: {userData[i].name}</p>
+      <p>Вік: {userData[i].age}</p>  
+      <p>Стать: {userData[i].gender}</p>
+      <p>Залишок: {userData[i].balance}</p>
+      <img src={userData[i].picture} alt="photo" width={width} className={imageUser}/>
+    </div>
+  );
+  }
+
+</script>
+</body>
+</html>
